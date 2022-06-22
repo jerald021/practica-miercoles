@@ -1,0 +1,42 @@
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+
+
+<div class="container">
+  <h1 class="header">My shopping list</h1>
+
+  <ul>
+    <div  *ngFor="let user of userList; let i = index">
+      <div [ngClass]="addClass(user.age)">
+        <li>
+          Name: {{ user.name }} Age: {{ user.age }} Email:
+          {{ user.email }} Gender: {{ user.gender }}
+        </li>
+      </div>
+    </div>
+  </ul>
+
+  <input type="text" name="name" id="name" placeholder="Name" [(ngModel)]="name">
+  <input type="number" name="age" id="age" placeholder="Age" [(ngModel)]="age">
+  <input type="text" name="email" id="email" placeholder="Email" [(ngModel)]="email">
+  <!-- <input type="text" name="gender" id="gender" placeholder="Gender" [(ngModel)]="gender"> -->
+      <label for="gender">Choose gender:</label>
+        <select name="gender" id="gender" [(ngModel)]="gender">
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Other">Other</option>
+          <option value="All">All</option>
+          <option value="N/S">N/S</option>
+        </select>
+
+  <button *ngIf ="age >= 0"(click)= "addUser()">Add User</button>
+  <p *ngIf="age < 0 ">Age cant be negative</p>
+</div>
